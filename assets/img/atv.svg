@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <title>Fig. 02 — ATV / side-by-side</title>
-  <g stroke="#EDE6D8" stroke-width="2">
+  <g stroke="#DCE5EF" stroke-width="2">
     <circle cx="150" cy="298" r="56" stroke-dasharray="7 4"/><circle cx="150" cy="298" r="44"/><circle cx="150" cy="298" r="20"/>
     <circle cx="448" cy="298" r="56" stroke-dasharray="7 4"/><circle cx="448" cy="298" r="44"/><circle cx="448" cy="298" r="20"/>
     <path d="M78 262 Q88 210 150 205 Q208 207 228 246"/>
@@ -12,14 +12,14 @@
     <path d="M86 206 L202 200 M100 206 v-14 M130 205 v-14 M160 203 v-14 M190 201 v-14 M86 192 L202 186"/>
     <path d="M410 190 L526 194 M420 190 v-14 M450 191 v-14 M480 192 v-14 M510 193 v-14 M410 176 L526 180"/>
   </g>
-  <g stroke="#FF5A1F" stroke-width="2">
+  <g stroke="#3D9BFF" stroke-width="2">
     <rect x="262" y="252" width="84" height="26" rx="3"/>
     <path d="M276 252 v-10 M294 252 v-10 M312 252 v-10 M330 252 v-10"/>
     <path d="M346 266 Q400 270 448 298" stroke-dasharray="5 5"/>
     <path d="M262 266 Q200 272 150 298" stroke-dasharray="5 5"/>
   </g>
-  <path d="M20 354 H580" stroke="#EDE6D8" stroke-dasharray="2 4" opacity=".55"/>
-  <g stroke="#EDE6D8" stroke-width="1" opacity=".8"><path d="M304 252 L304 120 H360"/></g>
-  <circle cx="304" cy="252" r="4" fill="#FF5A1F"/>
-  <g fill="#EDE6D8" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1"><text x="366" y="124">CARB · CVT · 4WD</text></g>
+  <path d="M20 354 H580" stroke="#DCE5EF" stroke-dasharray="2 4" opacity=".55"/>
+  <g stroke="#DCE5EF" stroke-width="1" opacity=".8"><path d="M304 252 L304 120 H360"/></g>
+  <circle cx="304" cy="252" r="4" fill="#3D9BFF"/>
+  <g fill="#DCE5EF" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1"><text x="366" y="124">CARB · CVT · 4WD</text></g>
 </svg>

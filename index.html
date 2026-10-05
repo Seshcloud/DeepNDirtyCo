@@ -3,316 +3,562 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Deep N Dirty Co. — Young's Mobile Mechanic · Napanee, ON</title>
-  <meta name="description" content="Licensed mobile mechanic based in Napanee, Ontario. Automotive, ATV, side-by-side and lawnmower repairs plus diagnostic scans — done in your driveway, within 60 km and beyond. Call (613) 449-4659.">
-  <meta name="theme-color" content="#0C0B0A">
+  <title>Young Mobile Mechanic — Licensed Mobile Mechanic, Napanee ON</title>
+  <meta name="description" content="Need your vehicle repaired but don't have time to get it to a shop? Licensed mobile mechanic based in Napanee, Ontario: brakes, suspension, diagnostics, oil changes, tune-ups, no-starts and more, within 60 km and beyond. Call (613) 449-4659.">
+  <meta name="theme-color" content="#030406">
   <meta name="color-scheme" content="dark">
-  <meta property="og:title" content="Deep N Dirty Co. — Young's Mobile Mechanic">
-  <meta property="og:description" content="The shop comes to you. Licensed mobile mechanic out of Napanee, ON — 60 km radius and beyond.">
+  <meta property="og:title" content="Young Mobile Mechanic — I'll come to you">
+  <meta property="og:description" content="Licensed mobile mechanic out of Napanee, ON. Honest work, fair prices and reliable service, within 60 km and beyond.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/ymm-logo.webp">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-latin-wdth-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/ymm-mechanic.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="assets/css/main.css">
-  <script>document.documentElement.classList.replace('no-js','js');</script>
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "AutoRepair",
-    "name": "Deep N Dirty Co. (Young's Mobile Mechanic)",
+    "name": "Young Mobile Mechanic",
+    "alternateName": "Deep N Dirty Co.",
+    "description": "Licensed mobile mechanic based in Napanee, Ontario.",
     "telephone": "+1-613-449-4659",
-    "areaServed": "Napanee, Ontario and surrounding area within 60 km",
     "address": { "@type": "PostalAddress", "addressLocality": "Napanee", "addressRegion": "ON", "addressCountry": "CA" },
-    "geo": { "@type": "GeoCoordinates", "latitude": 44.2487, "longitude": -76.9497 }
+    "geo": { "@type": "GeoCoordinates", "latitude": 44.2487, "longitude": -76.9497 },
+    "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 44.2487, "longitude": -76.9497 }, "geoRadius": 60000 },
+    "knowsAbout": ["Brakes", "Suspension", "Diagnostics", "Oil changes", "Tune-ups", "No-start issues", "Batteries, starters and alternators", "Wheel bearings", "Tie rods and ball joints", "ATV repair", "Side-by-side repair", "Lawnmower repair"]
   }
   </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Preloader: a torque gauge counting up -->
+  <!-- Shared SVG defs: hex nut glyph, hover warp filter, chrome gradient -->
+  <svg class="defs" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="nut" viewBox="0 0 24 24"><path d="M12 2 20.7 7v10L12 22l-8.7-5V7Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+      <filter id="warp" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.05" numOctaves="2" seed="3" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <linearGradient id="chromeG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".42" stop-color="#c9d2dd"/><stop offset=".5" stop-color="#4d5868"/><stop offset=".58" stop-color="#dfe6ee"/><stop offset="1" stop-color="#8c99aa"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Ignition loader: needle sweep like a dash on start-up -->
   <div class="loader" aria-hidden="true">
     <div class="loader__inner">
-      <span class="loader__label mono">Torque check</span>
-      <span class="loader__count"><span class="loader__num">00</span><sup>%</sup></span>
-      <span class="loader__bar"><i></i></span>
-      <span class="loader__label loader__label--r mono">Napanee · ON</span>
+      <svg class="loader__gauge" viewBox="0 0 300 170">
+        <g class="loader__ticks"></g>
+        <path class="loader__track" d="M30 150 A120 120 0 0 1 270 150"/>
+        <path class="loader__fill" d="M30 150 A120 120 0 0 1 270 150" pathLength="1"/>
+        <line class="loader__needle" x1="150" y1="150" x2="150" y2="44"/>
+        <circle class="loader__hub" cx="150" cy="150" r="9"/>
+      </svg>
+      <div class="loader__meta mono"><span>Ignition</span><span><span class="loader__num">000</span>%</span></div>
+      <p class="loader__brand">Young Mobile Mechanic</p>
     </div>
   </div>
 
-  <!-- Curtain used for in-page "page transitions" -->
-  <div class="curtain" aria-hidden="true"><span class="curtain__word">Rolling out</span></div>
+  <!-- Brush-stroke wipe used for in-page transitions -->
+  <div class="wipe" aria-hidden="true"><span class="wipe__label"></span></div>
 
-  <!-- Custom cursor -->
   <div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
-
-  <!-- Hover preview used by the fix-list -->
-  <div class="preview" aria-hidden="true"><div class="preview__inner"><img src="assets/img/car.svg" alt="" decoding="async"></div></div>
-
+  <div class="mpreview" aria-hidden="true"><img src="assets/img/car.svg" alt="" decoding="async"></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><i></i></div>
 
   <header class="nav">
-    <a href="#top" class="nav__logo" data-magnetic="0.3" data-cursor="Top" aria-label="Deep N Dirty Co. — back to top">
-      <span class="nav__logo-mark">DND</span><span class="nav__logo-slash">/</span><span class="nav__logo-co">co.</span>
+    <a href="#top" class="brand" data-goto data-magnetic="0.25" data-cursor="Top" aria-label="Young Mobile Mechanic, back to top">
+      <span class="brand__y chrome-text">Young</span>
+      <span class="brand__m mono">Mobile mechanic</span>
     </a>
-    <p class="nav__meta mono"><span class="dot-live" aria-hidden="true"></span> Napanee <span class="nav__time" data-time>--:--</span></p>
+    <p class="nav__meta mono"><span class="led" aria-hidden="true"></span>Napanee <span data-time>--:--</span></p>
     <div class="nav__right">
-      <a class="pill" href="tel:+16134494659" data-magnetic="0.35" data-cursor="Ring"><span class="pill__fill" aria-hidden="true"></span><span class="pill__text">(613) 449-4659</span></a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-magnetic="0.4" data-cursor="Menu">
-        <span class="sr-only">Menu</span><i></i><i></i>
-      </button>
+      <a class="pill" href="tel:+16134494659" data-magnetic="0.3" data-cursor="Ring"><span class="pill__fill" aria-hidden="true"></span><span class="pill__text">(613) 449-4659</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-magnetic="0.4" data-cursor="Menu"><span class="sr-only">Menu</span><i></i><i></i></button>
     </div>
   </header>
 
   <nav class="menu" id="menu" aria-label="Main" hidden>
     <div class="menu__bg" aria-hidden="true"></div>
     <ul class="menu__list">
-      <li><a href="#services" data-goto><span class="menu__idx mono">01</span><span class="menu__word">Services</span></a></li>
-      <li><a href="#process" data-goto><span class="menu__idx mono">02</span><span class="menu__word">How it works</span></a></li>
-      <li><a href="#coverage" data-goto><span class="menu__idx mono">03</span><span class="menu__word">Coverage</span></a></li>
-      <li><a href="#fixes" data-goto><span class="menu__idx mono">04</span><span class="menu__word">What we fix</span></a></li>
-      <li><a href="#contact" data-goto><span class="menu__idx mono">05</span><span class="menu__word">Book a call</span></a></li>
+      <li><a href="#fix" data-goto data-preview="assets/img/car.svg"><span class="menu__idx mono">01</span><span class="menu__word">What I fix</span></a></li>
+      <li><a href="#trail" data-goto data-preview="assets/img/atv.svg"><span class="menu__idx mono">02</span><span class="menu__word">Off-road &amp; yard</span></a></li>
+      <li><a href="#route" data-goto data-preview="assets/img/gauge.svg"><span class="menu__idx mono">03</span><span class="menu__word">How it works</span></a></li>
+      <li><a href="#reach" data-goto data-preview="assets/img/radar.svg"><span class="menu__idx mono">04</span><span class="menu__word">Coverage</span></a></li>
+      <li><a href="#book" data-goto data-preview="assets/img/ymm-mechanic.webp"><span class="menu__idx mono">05</span><span class="menu__word">Book a visit</span></a></li>
     </ul>
     <div class="menu__foot mono">
       <a href="tel:+16134494659">(613) 449-4659</a>
       <span>@deepndirtyco</span>
-      <span>Licensed · Mobile · Napanee ON</span>
+      <span>Licensed · Mobile · Napanee, ON</span>
     </div>
   </nav>
 
+  <div class="callbar">
+    <a class="callbar__btn callbar__btn--call" href="tel:+16134494659">Call (613) 449-4659</a>
+    <a class="callbar__btn" href="sms:+16134494659">Text</a>
+  </div>
+
   <main id="main">
 
-    <!-- ============ HERO ============ -->
+    <!-- ================= HERO ================= -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true">
         <div class="hero__glow"></div>
-        <div class="hero__grid"></div>
-        <!-- Blueprint truck: dim base layer + X-ray layer revealed by the cursor's "work light" -->
-        <svg class="truck truck--base" viewBox="0 0 820 380" data-depth="0.6">
-          <use href="#truck-shell"/>
-        </svg>
-        <div class="hero__xray"><svg class="truck truck--xray" viewBox="0 0 820 380" data-depth="0.6">
-          <use href="#truck-shell"/>
-          <g class="xray" stroke="#FF5A1F" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="96" y="188" width="160" height="56" rx="6"/>
-            <circle cx="126" cy="216" r="12"/><circle cx="162" cy="216" r="12"/><circle cx="198" cy="216" r="12"/><circle cx="234" cy="216" r="12"/>
-            <path d="M256 228 L560 286 L610 290" stroke-dasharray="8 6"/>
-            <path d="M240 250 Q400 262 520 268 T790 262" opacity=".7"/>
-            <circle cx="190" cy="290" r="36"/><circle cx="610" cy="290" r="36"/>
-            <path d="M160 226 l8 -10 l8 10 l8 -10 l8 10 l8 -10 l8 10" />
-            <path d="M580 230 l8 -10 l8 10 l8 -10 l8 10 l8 -10 l8 10" />
-            <rect x="530" y="140" width="190" height="28" rx="3" opacity=".9"/>
-          </g>
-          <g font-family="JetBrains Mono, monospace" font-size="12" fill="#FF5A1F" letter-spacing="1">
-            <text x="96" y="176">V8 · 5.3L</text><text x="380" y="300">DRIVESHAFT</text><text x="530" y="132">TOOL CHEST</text>
-          </g>
-        </svg></div>
-        <svg class="sr-only" aria-hidden="true">
-          <defs>
-            <symbol id="truck-shell" viewBox="0 0 820 380">
-              <g stroke="#EDE6D8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M60 255 L62 205 Q64 186 92 183 L292 172 L352 108 Q357 102 366 102 L468 102 Q479 102 481 113 L492 178 L758 178 Q765 178 765 186 L765 255 L685 255 A80 80 0 0 0 535 255 L265 255 A80 80 0 0 0 115 255 Z"/>
-                <path d="M302 172 L356 116 L420 116 L420 172 Z"/>
-                <path d="M430 116 L470 116 L478 172 L430 172 Z"/>
-                <path d="M424 180 L424 250 M438 196 h18"/>
-                <path d="M500 178 L500 120 L752 120 L752 178 M560 120 v58 M624 120 v58 M688 120 v58" opacity=".55"/>
-                <circle cx="190" cy="290" r="56"/><circle cx="190" cy="290" r="30"/><circle cx="190" cy="290" r="8"/>
-                <circle cx="610" cy="290" r="56"/><circle cx="610" cy="290" r="30"/><circle cx="610" cy="290" r="8"/>
-                <rect x="64" y="196" width="16" height="14" rx="3"/>
-                <path d="M0 346 H820" stroke-dasharray="2 5" opacity=".6"/>
-                <path d="M60 52 V70 M765 52 V70 M60 61 H765" stroke-width="1" opacity=".6"/>
-              </g>
-              <g font-family="JetBrains Mono, monospace" font-size="12" fill="#EDE6D8" letter-spacing="2" opacity=".7">
-                <text x="412" y="50" text-anchor="middle">MOBILE SHOP — UNIT 01</text>
-                <text x="566" y="236">DND/CO.</text>
-              </g>
-            </symbol>
-          </defs>
-        </svg>
+        <div class="hero__fog"><i></i><i></i></div>
       </div>
+      <figure class="hero__art">
+        <img src="assets/img/ymm-mechanic.webp" alt="Illustration of the mechanic crouched with an impact driver in front of a black pickup" width="840" height="825" fetchpriority="high" decoding="async">
+      </figure>
+      <canvas class="hero__spray" aria-hidden="true"></canvas>
 
       <div class="hero__content">
-        <p class="hero__kicker mono"><span>Young's Mobile Mechanic</span><span>Est. Napanee, ON</span></p>
+        <p class="hero__kicker mono"><span>Licensed mobile mechanic</span><span>Napanee, Ontario</span></p>
 
-        <h1 class="hero__title" id="hero-title" aria-label="Deep N Dirty Co.">
-          <span class="hero__line hero__line--1" data-depth="-0.25" aria-hidden="true"><span class="split-chars">Deep</span><em class="hero__n">n’</em></span>
-          <span class="hero__line hero__line--2" data-depth="0.35" aria-hidden="true"><span class="split-chars">Dirty</span><em class="hero__co">co.</em></span>
+        <h1 class="lockup" id="hero-title" aria-label="Young Mobile Mechanic">
+          <span class="lockup__line lockup__line--young chrome" aria-hidden="true"><span class="split">Young</span></span>
+          <span class="lockup__line lockup__line--mobile spray" aria-hidden="true"><span class="split">Mobile</span></span>
+          <span class="lockup__line lockup__line--mechanic chrome" aria-hidden="true"><span class="split">Mechanic</span></span>
+          <svg class="lockup__wrench" viewBox="0 0 1000 60" aria-hidden="true">
+            <g class="wr-fill">
+              <path d="M12.7 15.1A26 26 0 1 1 12.7 44.9L25 36.3A11 11 0 1 0 25 23.7Z"/>
+              <path d="M58 24H930Q936 24 936 30Q936 36 930 36H58Q54 36 54 30Q54 24 58 24Z"/>
+              <circle cx="962" cy="30" r="26"/>
+              <path class="wr-hole" d="M973 30 967.5 39.5H956.5L951 30 956.5 20.5H967.5Z"/>
+            </g>
+            <g class="wr-stroke">
+              <path d="M12.7 15.1A26 26 0 1 1 12.7 44.9L25 36.3A11 11 0 1 0 25 23.7Z" pathLength="1"/>
+              <path d="M58 24H930Q936 24 936 30Q936 36 930 36H58Q54 36 54 30Q54 24 58 24Z" pathLength="1"/>
+              <circle cx="962" cy="30" r="26" pathLength="1"/>
+              <path d="M973 30 967.5 39.5H956.5L951 30 956.5 20.5H967.5Z" pathLength="1"/>
+            </g>
+          </svg>
         </h1>
 
         <div class="hero__aside">
-          <p class="hero__lede">The shop comes to you. Licensed mobile repairs for cars, trucks, ATVs, side-by-sides and mowers — <em>in your driveway</em>.</p>
-          <a class="btn" href="tel:+16134494659" data-magnetic="0.4" data-cursor="Ring">
-            <span class="btn__fill" aria-hidden="true"></span>
-            <span class="btn__text">Call the truck</span>
-            <span class="btn__arrow" aria-hidden="true">→</span>
-          </a>
+          <p class="hero__lede">I bring the shop to you: your driveway, your workplace, wherever it’s parked. Based in Napanee, covering 60&nbsp;km and more.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--volt" href="tel:+16134494659" data-magnetic="0.35" data-cursor="Ring">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__text">Call (613) 449-4659</span>
+            </a>
+            <a class="btn btn--ghost" href="#fix" data-goto data-magnetic="0.35" data-cursor="Scroll">
+              <span class="btn__fill" aria-hidden="true"></span><span class="btn__text">What I fix</span><span class="btn__arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
         </div>
 
-        <!-- Rotating seal: the focal point -->
-        <div class="seal-wrap" data-depth="1.1">
-        <a class="seal" href="#services" data-goto data-magnetic="0.25" data-cursor="Explore" aria-label="Explore services">
-          <svg viewBox="0 0 200 200" aria-hidden="true">
-            <defs><path id="seal-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-            <text class="seal__text"><textPath href="#seal-circle">Licensed mobile mechanic • 60 km radius • Napanee ON •</textPath></text>
-          </svg>
-          <span class="seal__core" aria-hidden="true">
-            <svg viewBox="0 0 48 48"><path d="M33 6a9 9 0 0 0-8.4 12.2L7 35.8a3.5 3.5 0 0 0 5 5l17.6-17.6A9 9 0 0 0 42 15l-5.3 5.3-5.6-1.4-1.4-5.6L35 8a9 9 0 0 0-2-2Z" fill="currentColor"/></svg>
-          </span>
-        </a>
+        <div class="seal-wrap">
+          <a class="seal" href="#route" data-goto data-magnetic="0.25" data-cursor="How" aria-label="How it works">
+            <svg class="seal__ring" viewBox="0 0 200 200" aria-hidden="true">
+              <defs><path id="seal-path" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+              <text><textPath href="#seal-path">Licensed mobile mechanic • Napanee, ON • 60 km &amp; beyond •</textPath></text>
+            </svg>
+            <span class="seal__core" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M8 33a16 16 0 0 1 32 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path class="seal__needle" d="M24 33 33 20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="33" r="3.6" fill="currentColor"/></svg>
+            </span>
+          </a>
         </div>
 
         <div class="hero__foot mono">
           <span class="scroll-cue" aria-hidden="true"><i></i></span>
-          <span>Scroll to roll out</span>
+          <span>Scroll, the shop’s on its way</span>
           <span class="hero__coords">44.2487° N · 76.9497° W</span>
-          <span class="hero__hint">Move to inspect · click to get dirty</span>
+          <span class="hero__hint">Click to get dirty</span>
         </div>
       </div>
       <div class="splats" aria-hidden="true"></div>
     </section>
 
-    <!-- ============ MANIFESTO (pinned word scrub) ============ -->
-    <section class="manifesto" aria-label="About">
-      <div class="manifesto__pin">
-        <p class="eyebrow mono"><span>(01)</span> The pitch</p>
-        <p class="manifesto__text" data-scrub-words>No tow truck. No waiting room. No “we’ll call you Tuesday.” Just a licensed mechanic, a truck full of tools, and <em>your driveway</em> — at prices that don’t need a shop’s overhead.</p>
-        <div class="manifesto__meta mono">
-          <span>Licensed technician</span><span>Competitive pricing</span><span>Napanee + 60 km</span>
+    <!-- ================= THE DEAL (dirty windshield) ================= -->
+    <section class="deal" aria-labelledby="deal-title">
+      <div class="deal__pin">
+        <p class="eyebrow mono"><i></i>The deal</p>
+        <div class="shield">
+          <div class="shield__glass">
+            <h2 class="shield__text" id="deal-title">
+              <span class="shield__q">Need your vehicle repaired but don’t have time to get it to a shop?</span>
+              <span class="shield__a"><span class="chrome-text">I’ll come to you!</span></span>
+            </h2>
+            <div class="shield__grime" aria-hidden="true">
+              <div class="shield__smear">
+                <span class="shield__q">Need your vehicle repaired but don’t have time to get it to a shop?</span>
+                <span class="shield__a"><span class="chrome-text">I’ll come to you!</span></span>
+              </div>
+            </div>
+            <div class="shield__glint" aria-hidden="true"></div>
+            <div class="shield__wiper" aria-hidden="true"></div>
+            <i class="shield__pivot" aria-hidden="true"></i>
+          </div>
+          <svg class="shield__edge" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M6 .5H94L99.5 99.5H.5Z"/></svg>
+        </div>
+        <ul class="deal__facts mono">
+          <li>Licensed mechanic</li>
+          <li>Competitive pricing</li>
+          <li>Napanee + 60 km</li>
+          <li>Diagnostic scanner hookups</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= SERVICE TICKER ================= -->
+    <section class="ticker" aria-label="Services at a glance">
+      <div class="ticker__row" data-marquee>
+        <p class="ticker__item">Brakes<svg class="nut"><use href="#nut"/></svg>Suspension<svg class="nut"><use href="#nut"/></svg>Diagnostics<svg class="nut"><use href="#nut"/></svg>Oil changes<svg class="nut"><use href="#nut"/></svg>Tune-ups<svg class="nut"><use href="#nut"/></svg>No-starts<svg class="nut"><use href="#nut"/></svg>Batteries<svg class="nut"><use href="#nut"/></svg>Starters<svg class="nut"><use href="#nut"/></svg>Alternators<svg class="nut"><use href="#nut"/></svg>Wheel bearings<svg class="nut"><use href="#nut"/></svg>Tie rods<svg class="nut"><use href="#nut"/></svg>Ball joints<svg class="nut"><use href="#nut"/></svg></p>
+        <p class="ticker__item" aria-hidden="true">Brakes<svg class="nut"><use href="#nut"/></svg>Suspension<svg class="nut"><use href="#nut"/></svg>Diagnostics<svg class="nut"><use href="#nut"/></svg>Oil changes<svg class="nut"><use href="#nut"/></svg>Tune-ups<svg class="nut"><use href="#nut"/></svg>No-starts<svg class="nut"><use href="#nut"/></svg>Batteries<svg class="nut"><use href="#nut"/></svg>Starters<svg class="nut"><use href="#nut"/></svg>Alternators<svg class="nut"><use href="#nut"/></svg>Wheel bearings<svg class="nut"><use href="#nut"/></svg>Tie rods<svg class="nut"><use href="#nut"/></svg>Ball joints<svg class="nut"><use href="#nut"/></svg></p>
+      </div>
+      <div class="ticker__row ticker__row--rev" data-marquee="-1" aria-hidden="true">
+        <p class="ticker__item">ATVs — Side-by-sides — Lawnmowers — Diagnostic scanner hookups — </p>
+        <p class="ticker__item">ATVs — Side-by-sides — Lawnmowers — Diagnostic scanner hookups — </p>
+      </div>
+    </section>
+
+    <!-- ================= WHAT I FIX (parts plate) ================= -->
+    <section class="fix" id="fix" aria-labelledby="fix-title">
+      <div class="fix__side">
+        <header class="fix__head">
+          <p class="eyebrow mono"><i></i>What I fix</p>
+          <h2 class="h2" id="fix-title"><span class="split-words">Brakes to</span> <span class="split-words accent">ball joints.</span></h2>
+          <p class="fix__sub">Everything on this list gets done where your vehicle sits. Not on the list? Ask. There’s much more.</p>
+        </header>
+
+        <div class="plate">
+          <div class="plate__frame">
+            <i class="plate__corner plate__corner--tl"></i><i class="plate__corner plate__corner--tr"></i><i class="plate__corner plate__corner--bl"></i><i class="plate__corner plate__corner--br"></i>
+            <div class="plate__figs">
+              <!-- 01 Brakes -->
+              <svg class="fig is-active" viewBox="0 0 400 300" role="img" aria-label="Brake rotor and caliper">
+                <circle class="s" cx="190" cy="152" r="112" pathLength="1"/>
+                <circle class="s thin" cx="190" cy="152" r="103" pathLength="1"/>
+                <circle class="s" cx="190" cy="152" r="50" pathLength="1"/>
+                <circle class="s" cx="190" cy="152" r="15" pathLength="1"/>
+                <circle class="s" cx="190" cy="121" r="6" pathLength="1"/><circle class="s" cx="219.5" cy="142.4" r="6" pathLength="1"/><circle class="s" cx="208.2" cy="177.1" r="6" pathLength="1"/><circle class="s" cx="171.8" cy="177.1" r="6" pathLength="1"/><circle class="s" cx="160.5" cy="142.4" r="6" pathLength="1"/>
+                <path class="s thin" d="M248.3 173.2 271.2 206.8M200.8 213.1 183.2 249.8M142.5 191.9 101.9 195M131.7 130.8 108.8 97.2M179.2 90.9 196.8 54.2" pathLength="1"/>
+                <path class="occ" d="M235.1 28A132 132 0 0 1 320 174.9L274.7 166.9A86 86 0 0 0 219.4 71.2Z"/>
+                <path class="a af" d="M235.1 28A132 132 0 0 1 320 174.9L274.7 166.9A86 86 0 0 0 219.4 71.2Z" pathLength="1"/>
+                <path class="a dash" d="M232.1 65.7A96 96 0 0 1 285.8 158.7"/>
+                <path class="a" d="M244 30C258 8 300 2 338 12" pathLength="1"/>
+                <circle class="dot" cx="274.3" cy="81.3" r="4"/>
+                <path class="ld" d="M110.8 72.8 80 40H24" pathLength="1"/><text x="24" y="33">ROTOR</text>
+                <path class="ld" d="M300 112 336 88H384" pathLength="1"/><text x="384" y="81" text-anchor="end">CALIPER</text>
+              </svg>
+              <!-- 02 Suspension -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Coil-over strut">
+                <path class="s" d="M176 34V16M224 34V16" pathLength="1"/>
+                <rect class="s" x="169" y="8" width="14" height="8" rx="2" pathLength="1"/><rect class="s" x="217" y="8" width="14" height="8" rx="2" pathLength="1"/>
+                <ellipse class="s" cx="200" cy="38" rx="64" ry="11" pathLength="1"/>
+                <rect class="s thin dash" x="193" y="49" width="14" height="150"/>
+                <ellipse class="s" cx="200" cy="58" rx="56" ry="9" pathLength="1"/>
+                <path class="s thin" d="M256 77Q200 73 144 88M256 99Q200 95 144 110M256 121Q200 117 144 132M256 143Q200 139 144 154M256 165Q200 161 144 176M256 187Q200 183 144 198" pathLength="1"/>
+                <path class="a" d="M144 66Q200 81 256 77M144 88Q200 103 256 99M144 110Q200 125 256 121M144 132Q200 147 256 143M144 154Q200 169 256 165M144 176Q200 191 256 187" pathLength="1"/>
+                <ellipse class="s" cx="200" cy="204" rx="56" ry="9" pathLength="1"/>
+                <rect class="s af" x="174" y="210" width="52" height="52" rx="4" pathLength="1"/>
+                <path class="s" d="M168 262H232V284Q232 292 224 292H176Q168 292 168 284Z" pathLength="1"/>
+                <circle class="s" cx="184" cy="277" r="6" pathLength="1"/><circle class="s" cx="216" cy="277" r="6" pathLength="1"/>
+                <path class="ld" d="M144 110 100 84H24" pathLength="1"/><text x="24" y="77">COIL SPRING</text>
+                <path class="ld" d="M226 236 296 212H384" pathLength="1"/><text x="384" y="205" text-anchor="end">STRUT</text>
+                <path class="ld" d="M264 38 300 26H384" pathLength="1"/><text x="384" y="19" text-anchor="end">TOP MOUNT</text>
+              </svg>
+              <!-- 03 Diagnostics -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Diagnostic scanner plugged into an OBD-II port">
+                <rect class="s" x="118" y="14" width="150" height="226" rx="22" pathLength="1"/>
+                <rect class="s" x="134" y="34" width="118" height="92" rx="6" pathLength="1"/>
+                <polyline class="a" points="142,104 156,104 164,72 172,116 180,88 192,88 200,58 208,112 216,96 230,96 238,80 246,104" pathLength="1"/>
+                <text class="ta" x="142" y="52">P0301</text><text x="246" y="52" text-anchor="end">CYL 1</text>
+                <circle class="s" cx="160" cy="160" r="11" pathLength="1"/><circle class="s" cx="226" cy="160" r="11" pathLength="1"/>
+                <rect class="s" x="170" y="190" width="46" height="14" rx="7" pathLength="1"/>
+                <path class="s" d="M193 240C193 276 262 286 300 262" pathLength="1"/>
+                <rect class="s af" x="300" y="236" width="56" height="40" rx="6" pathLength="1"/>
+                <path class="a" d="M312 248H344M312 256H344M312 264H344" pathLength="1"/>
+                <path class="ld" d="M356 250H372V206" pathLength="1"/><text x="384" y="198" text-anchor="end">OBD-II</text>
+                <path class="ld" d="M252 80H296" pathLength="1"/><text x="302" y="84">LIVE DATA</text>
+              </svg>
+              <!-- 04 Oil changes -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Oil filter and fresh oil">
+                <ellipse class="s" cx="150" cy="60" rx="58" ry="12" pathLength="1"/>
+                <path class="s" d="M92 60V226A58 12 0 0 0 208 226V60" pathLength="1"/>
+                <path class="s thin" d="M102 68V98M112 70V100M122 71V101M132 72V102M142 72V102M152 72V102M162 72V102M172 71V101M182 70V100M192 69V99M200 67V97" pathLength="1"/>
+                <rect class="a af" x="92" y="134" width="116" height="44" pathLength="1"/>
+                <text class="ta" x="150" y="161" text-anchor="middle">OIL FILTER</text>
+                <path class="a af" d="M150 246C150 246 141 258 141 264A9 9 0 0 0 159 264C159 258 150 246 150 246Z" pathLength="1"/>
+                <path class="a af" d="M300 72C300 72 248 142 248 180A52 52 0 0 0 352 180C352 142 300 72 300 72Z" pathLength="1"/>
+                <path class="s thin" d="M272 182A28 28 0 0 0 290 206" pathLength="1"/>
+                <path class="ld" d="M352 180 372 150V118" pathLength="1"/><text x="384" y="110" text-anchor="end">FRESH OIL</text>
+                <path class="ld" d="M92 100 62 72H20" pathLength="1"/><text x="20" y="65">NEW FILTER</text>
+              </svg>
+              <!-- 05 Tune-ups -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Spark plug">
+                <rect class="s" x="163" y="14" width="14" height="16" rx="3" pathLength="1"/>
+                <rect class="s" x="158" y="30" width="24" height="8" rx="2" pathLength="1"/>
+                <path class="s" d="M160 38H180L186 126H154Z" pathLength="1"/>
+                <path class="s thin" d="M159.2 50H180.8M158.5 60H181.5M157.8 70H182.2M157.1 80H182.9" pathLength="1"/>
+                <rect class="s af" x="140" y="126" width="60" height="34" rx="3" pathLength="1"/>
+                <path class="s thin" d="M155 126V160M185 126V160" pathLength="1"/>
+                <rect class="s" x="146" y="160" width="48" height="6" pathLength="1"/>
+                <rect class="s" x="152" y="166" width="36" height="70" pathLength="1"/>
+                <path class="s thin" d="M152 172 188 178M152 180 188 186M152 188 188 194M152 196 188 202M152 204 188 210M152 212 188 218M152 220 188 226M152 228 188 234" pathLength="1"/>
+                <path class="s" d="M170 236V254M186 236V264H166" pathLength="1"/>
+                <circle class="spark" cx="170" cy="259" r="8"/>
+                <polyline class="a" points="163,260 169,256 166,262 175,258" pathLength="1"/>
+                <path class="ld" d="M190 259H246L270 236H384" pathLength="1"/><text x="384" y="229" text-anchor="end">GAP</text>
+                <path class="ld" d="M184 82 262 62H384" pathLength="1"/><text x="384" y="55" text-anchor="end">SPARK PLUG</text>
+                <path class="ld" d="M200 143H262L282 120H384" pathLength="1"/><text x="384" y="113" text-anchor="end">FILTERS · FLUIDS</text>
+              </svg>
+              <!-- 06 No-start issues -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Ignition key and battery warning light">
+                <circle class="s" cx="104" cy="168" r="52" pathLength="1"/>
+                <circle class="s thin" cx="104" cy="168" r="40" pathLength="1"/>
+                <circle class="s" cx="80" cy="168" r="11" pathLength="1"/>
+                <path class="s" d="M154 154H330L346 168 330 182H300L294 190 284 182H268L262 190 252 182H236L230 190 220 182H154" pathLength="1"/>
+                <path class="s thin" d="M170 168H322" pathLength="1"/>
+                <path class="a" d="M238 128Q258 112 278 128M226 114Q258 88 290 114M214 100Q258 64 302 100" pathLength="1"/>
+                <text class="ta" x="258" y="146" text-anchor="middle">CLICK</text>
+                <rect class="a af" x="34" y="34" width="56" height="34" rx="4" pathLength="1"/>
+                <path class="a" d="M44 34V27H56V34M68 34V27H80V34M44 51H56M50 45V57M68 51H80" pathLength="1"/>
+                <path class="ld" d="M90 51H130L150 30H220" pathLength="1"/><text x="226" y="34">BATTERY LIGHT</text>
+                <path class="ld" d="M346 168 370 200V236" pathLength="1"/><text x="384" y="252" text-anchor="end">NO CRANK</text>
+              </svg>
+              <!-- 07 Batteries, starters & alternators -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Car battery and alternator">
+                <rect class="s" x="30" y="112" width="156" height="118" rx="8" pathLength="1"/>
+                <path class="s thin" d="M30 134H186" pathLength="1"/>
+                <rect class="s" x="54" y="98" width="24" height="14" rx="2" pathLength="1"/><rect class="s" x="138" y="98" width="24" height="14" rx="2" pathLength="1"/>
+                <path class="a" d="M60 80H72M66 74V86M144 80H156" pathLength="1"/>
+                <path class="a af" d="M116 146 98 178H112L104 210 128 168H114L124 146Z" pathLength="1"/>
+                <circle class="s" cx="292" cy="170" r="74" pathLength="1"/>
+                <circle class="s thin" cx="292" cy="170" r="50" pathLength="1"/>
+                <path class="s thin" d="M346 170H360M338.8 197 350.9 204M319 216.8 326 228.9M292 224V238M265 216.8 258 228.9M245.2 197 233.1 204M238 170H224M245.2 143 233.1 136M265 123.2 258 111.1M292 116V102M319 123.2 326 111.1M338.8 143 350.9 136" pathLength="1"/>
+                <circle class="a af" cx="292" cy="170" r="20" pathLength="1"/>
+                <circle class="a" cx="292" cy="170" r="13" pathLength="1"/>
+                <circle class="dot" cx="292" cy="170" r="4"/>
+                <rect class="s" x="282" y="82" width="20" height="14" rx="3" pathLength="1"/><rect class="s" x="282" y="244" width="20" height="14" rx="3" pathLength="1"/>
+                <path class="a dash" d="M292 150 400 128M292 190 400 212"/>
+                <text x="108" y="258" text-anchor="middle">BATTERY</text>
+                <text x="292" y="284" text-anchor="middle">ALTERNATOR</text>
+              </svg>
+              <!-- 08 Wheel bearings -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Wheel bearing cross-section">
+                <circle class="s" cx="200" cy="150" r="118" pathLength="1"/>
+                <circle class="s" cx="200" cy="150" r="100" pathLength="1"/>
+                <circle class="s thin dash" cx="200" cy="150" r="85"/>
+                <circle class="s" cx="200" cy="150" r="70" pathLength="1"/>
+                <circle class="s" cx="200" cy="150" r="52" pathLength="1"/>
+                <circle class="a af" cx="285" cy="150" r="13" pathLength="1"/><circle class="a af" cx="273.6" cy="192.5" r="13" pathLength="1"/><circle class="a af" cx="242.5" cy="223.6" r="13" pathLength="1"/><circle class="a af" cx="200" cy="235" r="13" pathLength="1"/><circle class="a af" cx="157.5" cy="223.6" r="13" pathLength="1"/><circle class="a af" cx="126.4" cy="192.5" r="13" pathLength="1"/><circle class="a af" cx="115" cy="150" r="13" pathLength="1"/><circle class="a af" cx="126.4" cy="107.5" r="13" pathLength="1"/><circle class="a af" cx="157.5" cy="76.4" r="13" pathLength="1"/><circle class="a af" cx="200" cy="65" r="13" pathLength="1"/><circle class="a af" cx="242.5" cy="76.4" r="13" pathLength="1"/><circle class="a af" cx="273.6" cy="107.5" r="13" pathLength="1"/>
+                <circle class="a" cx="200" cy="150" r="26" pathLength="1"/>
+                <circle class="dot" cx="200" cy="150" r="4"/>
+                <path class="ld" d="M122.9 72.9 90 38H24" pathLength="1"/><text x="24" y="31">OUTER RACE</text>
+                <path class="ld" d="M273.6 107.5 318 62H384" pathLength="1"/><text x="384" y="55" text-anchor="end">BALLS</text>
+                <path class="ld" d="M150.5 199.5 110 250H24" pathLength="1"/><text x="24" y="243">INNER RACE</text>
+              </svg>
+              <!-- 09 Tie rods & ball joints -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Tie rod end and ball joint">
+                <circle class="s" cx="96" cy="170" r="30" pathLength="1"/>
+                <circle class="a af" cx="96" cy="170" r="15" pathLength="1"/>
+                <path class="s" d="M84 142 88 98H104L108 142" pathLength="1"/>
+                <path class="s thin" d="M89 108H103M88.6 116H103.4M88.2 124H103.8" pathLength="1"/>
+                <rect class="s" x="82" y="82" width="28" height="16" rx="2" pathLength="1"/>
+                <path class="a" d="M110 90H122" pathLength="1"/>
+                <rect class="s" x="124" y="163" width="70" height="14" rx="3" pathLength="1"/>
+                <path class="s thin" d="M172 163 176 177M178 163 182 177M184 163 188 177" pathLength="1"/>
+                <rect class="s af" x="194" y="155" width="58" height="30" rx="4" pathLength="1"/>
+                <path class="s thin" d="M206 155V185M240 155V185" pathLength="1"/>
+                <rect class="s" x="252" y="164" width="48" height="12" rx="3" pathLength="1"/>
+                <ellipse class="s" cx="306" cy="170" rx="5" ry="16" pathLength="1"/><ellipse class="s" cx="318" cy="170" rx="5" ry="19" pathLength="1"/><ellipse class="s" cx="330" cy="170" rx="5" ry="22" pathLength="1"/><ellipse class="s" cx="342" cy="170" rx="5" ry="22" pathLength="1"/>
+                <circle class="s" cx="372" cy="170" r="18" pathLength="1"/>
+                <circle class="dot" cx="372" cy="170" r="4"/>
+                <path class="ld" d="M74 192 50 236H24" pathLength="1"/><text x="24" y="229">BALL JOINT</text>
+                <path class="ld" d="M222 155 240 112H300" pathLength="1"/><text x="240" y="105">TIE ROD</text>
+                <path class="ld" d="M330 148 350 104H384" pathLength="1"/><text x="384" y="97" text-anchor="end">BOOT</text>
+              </svg>
+              <!-- 10 Much more -->
+              <svg class="fig" viewBox="0 0 400 300" role="img" aria-label="Wrench and ratchet">
+                <g transform="rotate(-32 200 150)">
+                  <path class="s" d="M47.1 133.9A28 28 0 1 1 47.1 166.1L60.2 156.9A12 12 0 1 0 60.2 143.1Z" pathLength="1"/>
+                  <rect class="s" x="96" y="143" width="212" height="14" rx="7" pathLength="1"/>
+                  <circle class="s" cx="332" cy="150" r="24" pathLength="1"/>
+                  <polygon class="a af" points="344,150 338,160.4 326,160.4 320,150 326,139.6 338,139.6" pathLength="1"/>
+                </g>
+                <g transform="rotate(32 200 150)">
+                  <rect class="s" x="84" y="144" width="190" height="12" rx="6" pathLength="1"/>
+                  <path class="s thin" d="M100 147V153M110 147V153M120 147V153M130 147V153" pathLength="1"/>
+                  <circle class="s" cx="300" cy="150" r="26" pathLength="1"/>
+                  <rect class="a af" x="292" y="142" width="16" height="16" rx="2" pathLength="1"/>
+                  <path class="s" d="M300 124V114" pathLength="1"/>
+                </g>
+                <text class="ta" x="200" y="290" text-anchor="middle">+ WHATEVER ELSE IT NEEDS</text>
+              </svg>
+            </div>
+          </div>
+          <div class="plate__cap mono" aria-hidden="true"><span data-plate-code>Fig. 01</span><span data-plate-name>Brakes</span><span><b data-plate-idx>01</b> / 10</span></div>
         </div>
       </div>
+
+      <ol class="parts">
+        <li class="part is-active" data-name="Brakes"><span class="part__idx mono">01</span><div class="part__body"><h3 class="part__name">Brakes</h3><p class="part__desc">Pads, rotors, calipers and lines. Grinding, pulling or a soft pedal.</p></div></li>
+        <li class="part" data-name="Suspension"><span class="part__idx mono">02</span><div class="part__body"><h3 class="part__name">Suspension</h3><p class="part__desc">Struts, shocks and springs. Clunks over bumps, bouncing or a sagging corner.</p></div></li>
+        <li class="part" data-name="Diagnostics"><span class="part__idx mono">03</span><div class="part__body"><h3 class="part__name">Diagnostics</h3><p class="part__desc">Scanner hookup on site. I read the codes and tell you straight what they mean.</p></div></li>
+        <li class="part" data-name="Oil changes"><span class="part__idx mono">04</span><div class="part__body"><h3 class="part__name">Oil changes</h3><p class="part__desc">Oil and filter done in your driveway. No waiting room.</p></div></li>
+        <li class="part" data-name="Tune-ups"><span class="part__idx mono">05</span><div class="part__body"><h3 class="part__name">Tune-ups</h3><p class="part__desc">Plugs, filters and fluids, so it runs the way it should.</p></div></li>
+        <li class="part" data-name="No-start issues"><span class="part__idx mono">06</span><div class="part__body"><h3 class="part__name">No-start issues</h3><p class="part__desc">Clicks, cranks or does nothing at all? I track down why.</p></div></li>
+        <li class="part" data-name="Batteries, starters &amp; alternators"><span class="part__idx mono">07</span><div class="part__body"><h3 class="part__name">Batteries, starters &amp; alternators</h3><p class="part__desc">Tested and swapped where it sits.</p></div></li>
+        <li class="part" data-name="Wheel bearings"><span class="part__idx mono">08</span><div class="part__body"><h3 class="part__name">Wheel bearings</h3><p class="part__desc">That hum or grind that gets louder with speed.</p></div></li>
+        <li class="part" data-name="Tie rods &amp; ball joints"><span class="part__idx mono">09</span><div class="part__body"><h3 class="part__name">Tie rods &amp; ball joints</h3><p class="part__desc">Loose steering, clunks and uneven tire wear.</p></div></li>
+        <li class="part part--more" data-name="Much more"><span class="part__idx mono">10</span><div class="part__body"><h3 class="part__name">Much more</h3><p class="part__desc">Not on the list? <a href="#book" data-goto>Tell me what it’s doing →</a></p></div></li>
+      </ol>
     </section>
 
-    <!-- ============ VELOCITY MARQUEE ============ -->
-    <section class="marquee" aria-label="What we work on">
-      <div class="marquee__track" data-marquee>
-        <span class="marquee__item">Cars <i>✺</i> Trucks <i>✺</i> ATVs <i>✺</i> Side-by-sides <i>✺</i> Lawnmowers <i>✺</i> Diagnostics <i>✺</i>&nbsp;</span>
-        <span class="marquee__item" aria-hidden="true">Cars <i>✺</i> Trucks <i>✺</i> ATVs <i>✺</i> Side-by-sides <i>✺</i> Lawnmowers <i>✺</i> Diagnostics <i>✺</i>&nbsp;</span>
-      </div>
-      <div class="marquee__track marquee__track--rev" data-marquee="-1" aria-hidden="true">
-        <span class="marquee__item marquee__item--o">In your driveway — at your camp — on the job site — at the trailhead —&nbsp;</span>
-        <span class="marquee__item marquee__item--o">In your driveway — at your camp — on the job site — at the trailhead —&nbsp;</span>
-      </div>
-    </section>
-
-    <!-- ============ SERVICES (horizontal) ============ -->
-    <section class="services" id="services" aria-label="Services">
-      <div class="services__pin">
-        <header class="services__intro services__intro--m">
-          <p class="eyebrow mono"><span>(02)</span> Services</p>
-          <h2 class="display" id="services-title-m"><span class="split-words">Four kinds</span> <span class="split-words">of</span> <em class="serif">dirty.</em></h2>
-          <p class="services__note">From the daily driver to the trail machine to the mower in the shed. <span class="mono services__swipe">Swipe →</span></p>
+    <!-- ================= OFF-ROAD & YARD (horizontal) ================= -->
+    <section class="trail" id="trail" aria-label="Off-road and yard">
+      <div class="trail__pin">
+        <header class="trail__intro trail__intro--m">
+          <p class="eyebrow mono"><i></i>Off-road &amp; yard</p>
+          <h2 class="h2"><span class="split-words">Not just</span> <span class="split-words accent">cars.</span></h2>
+          <p class="trail__note">ATVs, side-by-sides and lawnmowers, repaired where they’re parked. <span class="mono trail__swipe">Swipe →</span></p>
         </header>
-        <div class="services__track">
-          <header class="services__intro">
-            <p class="eyebrow mono"><span>(02)</span> Services</p>
-            <h2 class="display" id="services-title"><span class="split-words">Four kinds</span> <span class="split-words">of</span> <em class="serif">dirty.</em></h2>
-            <p class="services__note">From the daily driver to the trail machine to the mower in the shed. <span class="mono services__swipe">Swipe →</span></p>
+        <div class="trail__track">
+          <header class="trail__intro">
+            <p class="eyebrow mono"><i></i>Off-road &amp; yard</p>
+            <h2 class="h2"><span class="split-words">Not just</span> <span class="split-words accent">cars.</span></h2>
+            <p class="trail__note">ATVs, side-by-sides and lawnmowers, repaired where they’re parked.</p>
           </header>
 
-          <article class="panel" data-cursor="View">
-            <div class="panel__media">
-              <img src="assets/img/car.svg" alt="Line drawing of a sedan with callouts for engine, suspension and brakes" loading="lazy" decoding="async" width="600" height="400">
-            </div>
-            <div class="panel__body">
-              <span class="panel__num">01</span>
-              <h3 class="panel__title">Automotive<br>repairs</h3>
-              <p>Brakes, suspension, starters, alternators, tune-ups, fluids and the noise you’ve been ignoring. Shop-grade work at competitive pricing.</p>
-              <span class="panel__tag mono">Cars · Trucks · SUVs</span>
-            </div>
-          </article>
-
-          <article class="panel panel--alt" data-cursor="View">
-            <div class="panel__media">
-              <img src="assets/img/atv.svg" alt="Line drawing of an ATV with drivetrain highlighted" loading="lazy" decoding="async" width="600" height="400">
-            </div>
-            <div class="panel__body">
-              <span class="panel__num">02</span>
-              <h3 class="panel__title">ATV &amp;<br>side-by-side</h3>
-              <p>Carbs, CVT belts, bearings, 4WD issues and pre-season tune-ups. We’ll meet you at the shed, the camp or the trailhead.</p>
-              <span class="panel__tag mono">Quads · SxS · UTVs</span>
-            </div>
-          </article>
-
-          <article class="panel" data-cursor="View">
-            <div class="panel__media">
-              <img src="assets/img/mower.svg" alt="Line drawing of a riding lawnmower with deck and blades highlighted" loading="lazy" decoding="async" width="600" height="400">
-            </div>
-            <div class="panel__body">
-              <span class="panel__num">03</span>
-              <h3 class="panel__title">Lawnmower<br>repairs</h3>
-              <p>Riding and push mowers. Won’t start, won’t cut, won’t quit smoking — blades, belts, decks and small engines.</p>
-              <span class="panel__tag mono">Riders · Push · Small engine</span>
+          <article class="rig" data-cursor="View">
+            <div class="rig__media"><div class="rig__zoom">
+              <svg class="fig fig--rig" viewBox="0 0 600 400" role="img" aria-label="ATV line drawing">
+                <circle class="s dash" cx="150" cy="298" r="56"/><circle class="s" cx="150" cy="298" r="44" pathLength="1"/><circle class="s" cx="150" cy="298" r="20" pathLength="1"/>
+                <circle class="s dash" cx="448" cy="298" r="56"/><circle class="s" cx="448" cy="298" r="44" pathLength="1"/><circle class="s" cx="448" cy="298" r="20" pathLength="1"/>
+                <path class="s" d="M78 262Q88 210 150 205Q208 207 228 246" pathLength="1"/>
+                <path class="s" d="M372 246Q386 206 448 203Q510 207 522 262" pathLength="1"/>
+                <path class="s" d="M216 246H384L372 282H232Z" pathLength="1"/>
+                <path class="s" d="M266 214Q278 196 330 194L404 196Q416 202 404 214Z" pathLength="1"/>
+                <path class="s" d="M218 234Q236 200 268 204V234" pathLength="1"/>
+                <path class="s" d="M208 206 186 160M168 156 212 164" pathLength="1"/>
+                <path class="s thin" d="M86 206 202 200M100 206V192M130 205V191M160 203V189M190 201V187M86 192 202 186" pathLength="1"/>
+                <path class="s thin" d="M410 190 526 194M420 190V176M450 191V177M480 192V178M510 193V179M410 176 526 180" pathLength="1"/>
+                <rect class="a af" x="262" y="252" width="84" height="26" rx="3" pathLength="1"/>
+                <path class="a" d="M276 252V242M294 252V242M312 252V242M330 252V242" pathLength="1"/>
+                <path class="a dash" d="M346 266Q400 270 448 298M262 266Q200 272 150 298"/>
+                <path class="gd" d="M20 354H580"/>
+                <path class="ld" d="M304 252V120H360" pathLength="1"/><circle class="dot" cx="304" cy="252" r="4"/>
+                <text x="366" y="124">CARB · CVT · 4WD</text>
+              </svg>
+            </div></div>
+            <div class="rig__body">
+              <span class="rig__num" aria-hidden="true">01</span>
+              <h3 class="rig__title">ATVs</h3>
+              <p>Carbs, belts, bearings and the no-start after a long winter. Pre-season tune-ups so it’s ready when you are.</p>
+              <span class="rig__tags mono">Quads · 4×4 · Utility</span>
             </div>
           </article>
 
-          <article class="panel panel--hazard" data-cursor="View">
-            <div class="panel__media">
-              <img src="assets/img/scanner.svg" alt="Line drawing of a handheld diagnostic scanner showing a trouble code" loading="lazy" decoding="async" width="600" height="400">
-            </div>
-            <div class="panel__body">
-              <span class="panel__num">04</span>
-              <h3 class="panel__title">Diagnostic<br>scans</h3>
-              <p>Check engine light on? We plug in a scanner on-site, read the codes and tell you straight what it is and what it’ll take.</p>
-              <span class="panel__tag mono">OBD-II · Live data · Codes</span>
+          <article class="rig" data-cursor="View">
+            <div class="rig__media"><div class="rig__zoom">
+              <svg class="fig fig--rig" viewBox="0 0 600 400" role="img" aria-label="Side-by-side line drawing">
+                <circle class="s dash" cx="150" cy="300" r="52"/><circle class="s" cx="150" cy="300" r="38" pathLength="1"/><circle class="s" cx="150" cy="300" r="14" pathLength="1"/>
+                <circle class="s dash" cx="460" cy="300" r="52"/><circle class="s" cx="460" cy="300" r="38" pathLength="1"/><circle class="s" cx="460" cy="300" r="14" pathLength="1"/>
+                <path class="s" d="M70 262 76 222Q80 208 100 206L215 204 240 214H430L440 196H560L566 204V250L522 252A70 70 0 0 0 398 252H212A70 70 0 0 0 88 252Z" pathLength="1"/>
+                <path class="s" d="M215 204 252 106 404 102 434 196" pathLength="1"/>
+                <path class="s thin" d="M330 104V214" pathLength="1"/>
+                <path class="s" d="M270 214 264 168Q264 158 274 158L294 160 298 214M348 214 342 168Q342 158 352 158L372 160 376 214" pathLength="1"/>
+                <path class="s" d="M238 196 258 164" pathLength="1"/><ellipse class="s" cx="261" cy="160" rx="13" ry="4" transform="rotate(-30 261 160)" pathLength="1"/>
+                <rect class="s" x="440" y="166" width="120" height="30" rx="2" pathLength="1"/>
+                <path class="s thin" d="M460 166V196M480 166V196M500 166V196M520 166V196M540 166V196" pathLength="1"/>
+                <rect class="a af" x="402" y="222" width="64" height="24" rx="3" pathLength="1"/>
+                <path class="a dash" d="M434 246Q452 268 460 300"/>
+                <path class="s thin" d="M80 230H120M80 238H120" pathLength="1"/>
+                <path class="gd" d="M20 352H580"/>
+                <path class="ld" d="M434 234 470 120H520" pathLength="1"/><circle class="dot" cx="434" cy="234" r="4"/>
+                <text x="524" y="124">CVT · 4WD</text>
+                <path class="ld" d="M330 104V62H380" pathLength="1"/><text x="386" y="66">ROLL CAGE</text>
+              </svg>
+            </div></div>
+            <div class="rig__body">
+              <span class="rig__num" aria-hidden="true">02</span>
+              <h3 class="rig__title">Side-by-sides</h3>
+              <p>SxS and UTV repairs, from routine maintenance to the noise that showed up halfway down the trail.</p>
+              <span class="rig__tags mono">SxS · UTV</span>
             </div>
           </article>
 
-          <div class="services__end" aria-hidden="true">
-            <span class="display display--outline">Fixed<br>where<br>it sits.</span>
+          <article class="rig" data-cursor="View">
+            <div class="rig__media"><div class="rig__zoom">
+              <svg class="fig fig--rig" viewBox="0 0 600 400" role="img" aria-label="Riding lawnmower line drawing">
+                <circle class="s" cx="436" cy="294" r="56" pathLength="1"/><circle class="s dash" cx="436" cy="294" r="40"/><circle class="s" cx="436" cy="294" r="12" pathLength="1"/>
+                <circle class="s" cx="160" cy="320" r="30" pathLength="1"/><circle class="s" cx="160" cy="320" r="10" pathLength="1"/>
+                <path class="s" d="M108 292Q112 252 158 246L330 240 360 214H486Q512 220 508 258L500 292Z" pathLength="1"/>
+                <path class="s" d="M384 214Q372 170 396 158H418Q424 190 436 214" pathLength="1"/>
+                <path class="s" d="M300 240 330 190" pathLength="1"/><ellipse class="s" cx="332" cy="185" rx="24" ry="6" pathLength="1"/>
+                <path class="s thin" d="M124 262H184M124 272H184M124 282H184" pathLength="1"/>
+                <rect class="a af" x="200" y="314" width="200" height="24" rx="6" pathLength="1"/>
+                <path class="a dash" d="M220 344H380"/>
+                <path class="gd" d="M20 352H580"/>
+                <path class="ld" d="M300 326 250 110H200" pathLength="1"/><circle class="dot" cx="300" cy="326" r="4"/>
+                <path class="ld" d="M200 266 160 150H120" pathLength="1"/><circle class="dot" cx="200" cy="266" r="4"/>
+                <text x="200" y="104">BLADES · DECK</text><text x="114" y="154" text-anchor="end">SMALL ENGINE</text>
+              </svg>
+            </div></div>
+            <div class="rig__body">
+              <span class="rig__num" aria-hidden="true">03</span>
+              <h3 class="rig__title">Lawnmowers</h3>
+              <p>Riding and push mowers. Won’t start, won’t cut, won’t quit smoking? Sorted in your yard.</p>
+              <span class="rig__tags mono">Riders · Push · Small engines</span>
+            </div>
+          </article>
+
+          <div class="trail__end">
+            <p class="trail__words" aria-hidden="true">Trails.<br>Yards.<br>Driveways.</p>
+            <p class="trail__scan mono">Diagnostic scanner hookups available on site.</p>
           </div>
         </div>
-        <div class="services__counter mono" aria-hidden="true"><span data-panel-idx>01</span> / 04</div>
+        <div class="trail__hud mono" aria-hidden="true"><span><b data-rig-idx>01</b> / 03</span><i class="trail__bar"><b></b></i></div>
       </div>
     </section>
 
-    <!-- ============ PROCESS (pinned road) ============ -->
-    <section class="process" id="process" aria-labelledby="process-title">
-      <div class="process__pin">
-        <div class="process__head">
-          <p class="eyebrow mono"><span>(03)</span> How it works</p>
-          <h2 class="display" id="process-title"><span class="split-words">Call to</span> <em class="serif">keys</em></h2>
-        </div>
-
-        <svg class="road" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true">
-          <path class="road__base" d="M-20 300 C 200 300, 260 120, 460 140 S 760 320, 940 220 S 1140 80, 1240 110"/>
-          <path class="road__line" d="M-20 300 C 200 300, 260 120, 460 140 S 760 320, 940 220 S 1140 80, 1240 110"/>
-        </svg>
-        <div class="road__truck" aria-hidden="true"><span></span></div>
-
-        <ol class="steps">
-          <li class="step">
-            <span class="step__num">01</span>
-            <div class="step__body">
-              <h3 class="step__title">You call or text</h3>
-              <p>Tell us what it’s doing (or not doing). Year, make, model — and where it’s parked.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step__num">02</span>
-            <div class="step__body">
-              <h3 class="step__title">We roll up</h3>
-              <p>Truck, tools and scanner arrive at your driveway, camp or work site. Anywhere within 60 km of Napanee — further by arrangement.</p>
-            </div>
-          </li>
-          <li class="step">
-            <span class="step__num">03</span>
-            <div class="step__body">
-              <h3 class="step__title">Fixed. Keys back.</h3>
-              <p>Straight talk, fair price, no tow bill. You didn’t have to move — and neither did your machine.</p>
-            </div>
-          </li>
+    <!-- ================= HOW IT WORKS (gauge) ================= -->
+    <section class="route" id="route" aria-labelledby="route-title">
+      <div class="route__pin">
+        <header class="route__head">
+          <p class="eyebrow mono"><i></i>How it works</p>
+          <h2 class="h2" id="route-title"><span class="split-words">Call. I roll up.</span> <span class="split-words accent">Fixed.</span></h2>
+        </header>
+        <ol class="stages">
+          <li class="stage is-active"><span class="stage__n mono">Step 01</span><h3 class="stage__title">You call or text</h3><p>Tell me what it’s doing, the year, make and model, and where it’s parked. A photo helps.</p></li>
+          <li class="stage"><span class="stage__n mono">Step 02</span><h3 class="stage__title">I come to you</h3><p>Driveway, workplace or wherever it’s sitting. Anywhere within 60&nbsp;km of Napanee, and further by arrangement.</p></li>
+          <li class="stage"><span class="stage__n mono">Step 03</span><h3 class="stage__title">Back on the road</h3><p>Honest work at a fair price, done on site. No tow bill, no waiting room.</p></li>
         </ol>
+        <div class="gauge" aria-hidden="true">
+          <svg class="gauge__svg" viewBox="0 0 600 350">
+            <defs>
+              <radialGradient id="hubG" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#9aa8ba"/><stop offset="1" stop-color="#2a3442"/></radialGradient>
+            </defs>
+            <g class="gauge__ticks"></g>
+            <path class="gauge__track" d="M50 300A250 250 0 0 1 550 300"/>
+            <path class="gauge__fill" d="M50 300A250 250 0 0 1 550 300" pathLength="1"/>
+            <g class="gauge__marks">
+              <g class="mark is-on"><circle cx="67.6" cy="208" r="7"/><text x="98" y="254" text-anchor="middle">CALL</text></g>
+              <g class="mark"><circle cx="300" cy="50" r="7"/><text x="318" y="82">ROLL UP</text></g>
+              <g class="mark"><circle cx="532.4" cy="208" r="7"/><text x="502" y="254" text-anchor="middle">FIXED</text></g>
+            </g>
+            <g class="gauge__needle"><path d="M294 300 300 74 306 300Z"/><path d="M296 300 300 328 304 300Z" class="gauge__tail"/></g>
+            <circle class="gauge__hub" cx="300" cy="300" r="22"/>
+          </svg>
+          <div class="gauge__odo"><span class="mono">Km to you</span><span class="odo" data-odo>060</span></div>
+        </div>
       </div>
     </section>
 
-    <!-- ============ COVERAGE (radar) ============ -->
-    <section class="coverage" id="coverage" aria-labelledby="coverage-title">
-      <div class="coverage__copy">
-        <p class="eyebrow mono"><span>(04)</span> Coverage</p>
-        <h2 class="display" id="coverage-title"><span class="coverage__big" data-count="60">60</span><span class="coverage__unit">km</span></h2>
-        <p class="coverage__lede">Based out of Napanee. Covering everything within 60 km — <em class="serif">or more</em>, if you ask nicely.</p>
-        <ul class="towns mono" aria-label="Towns within range (approximate straight-line distance)">
+    <!-- ================= COVERAGE (radar) ================= -->
+    <section class="reach" id="reach" aria-labelledby="reach-title">
+      <div class="reach__copy">
+        <p class="eyebrow mono"><i></i>Coverage</p>
+        <h2 class="reach__title" id="reach-title"><span class="reach__big" data-count="60">60</span><span class="reach__unit">km</span><span class="reach__more">or more.</span></h2>
+        <p class="reach__lede">Based out of Napanee and covering everywhere within 60&nbsp;km. Further out? Call and ask.</p>
+        <ul class="towns mono" aria-label="Towns within range, approximate straight-line distance from Napanee">
           <li><span>Deseronto</span><span>10 km</span></li>
           <li><span>Bath</span><span>16 km</span></li>
           <li><span>Odessa</span><span>19 km</span></li>
@@ -330,19 +576,18 @@
         </ul>
         <p class="towns__note mono">Approx. straight-line distance from Napanee</p>
       </div>
-
       <div class="radar-wrap" aria-hidden="true">
-        <div class="radar" data-tilt>
-          <svg viewBox="-70 -70 140 140">
-            <g class="radar__rings" fill="none" stroke="currentColor">
-              <circle r="60" class="ring ring--60"/>
-              <circle r="40" class="ring ring--40"/>
-              <circle r="20" class="ring ring--20"/>
-              <path d="M-66 0 H66 M0 -66 V66" stroke-dasharray="1 2" opacity=".5"/>
+        <div class="radar">
+          <svg viewBox="-72 -72 144 144">
+            <defs>
+              <linearGradient id="sweepG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4fb8ff" stop-opacity="0"/><stop offset="1" stop-color="#4fb8ff" stop-opacity=".45"/></linearGradient>
+            </defs>
+            <g class="radar__rings">
+              <circle r="60" class="ring ring--60"/><circle r="40" class="ring"/><circle r="20" class="ring"/>
+              <path d="M-66 0H66M0-66V66" class="radar__cross"/>
             </g>
-            <g class="radar__sweep"><path d="M0 0 L60 0 A60 60 0 0 0 42.4 -42.4 Z"/></g>
-            <g class="radar__labels mono"><text x="1.5" y="-61.5">60</text><text x="1.5" y="-41.5">40</text><text x="1.5" y="-21.5">20</text></g>
-            <!-- x = km east, y = -(km north) of Napanee -->
+            <g class="radar__sweep"><path d="M0 0L60 0A60 60 0 0 0 42.4-42.4Z" fill="url(#sweepG)"/><path d="M0 0H60" class="radar__beam"/></g>
+            <g class="radar__labels"><text x="1.5" y="-61.5">60</text><text x="1.5" y="-41.5">40</text><text x="1.5" y="-21.5">20</text></g>
             <g class="radar__towns">
               <g class="town" transform="translate(37 2)"><circle r="1.4"/><text x="2.6" y="1">Kingston</text></g>
               <g class="town" transform="translate(-34.5 9.5)"><circle r="1.4"/><text x="-2.6" y="1" text-anchor="end">Belleville</text></g>
@@ -354,6 +599,7 @@
               <g class="town" transform="translate(14.7 -13.1)"><circle r="1"/><text x="2.2" y="1">Yarker</text></g>
               <g class="town" transform="translate(28.2 -17.6)"><circle r="1"/><text x="2.2" y="1">Sydenham</text></g>
               <g class="town" transform="translate(20.5 -25.8)"><circle r="1"/><text x="2.2" y="1">Verona</text></g>
+              <g class="town" transform="translate(24.2 2.9)"><circle r="1"/><text x="2.2" y="3.4">Amherstview</text></g>
               <g class="town" transform="translate(-23.9 5.4)"><circle r="1"/><text x="-2.2" y="-1.4" text-anchor="end">Shannonville</text></g>
               <g class="town" transform="translate(-50 16.5)"><circle r="1.2"/><text x="0" y="-2.6" text-anchor="middle">Trenton</text></g>
               <g class="town" transform="translate(-13.5 -44.5)"><circle r="1"/><text x="2.2" y="1">Kaladar</text></g>
@@ -364,84 +610,108 @@
       </div>
     </section>
 
-    <!-- ============ FIX LIST (hover previews) ============ -->
-    <section class="fixes" id="fixes" aria-labelledby="fixes-title">
-      <header class="fixes__head">
-        <p class="eyebrow mono"><span>(05)</span> What we fix</p>
-        <h2 class="display" id="fixes-title"><span class="split-words">If it</span> <span class="split-words">has an</span> <em class="serif">engine,</em><br><span class="split-words">call us.</span></h2>
-      </header>
-      <ul class="fixlist">
-        <li class="fix" data-img="assets/img/car.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">A</span><span class="fix__name">Brakes &amp; rotors</span><span class="fix__cat mono">Auto</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/car.svg" alt="" loading="lazy" decoding="async"><p>Pads, rotors, calipers, lines. Grinding, pulling or a soft pedal — sorted on-site.</p></div></div>
-        </li>
-        <li class="fix" data-img="assets/img/scanner.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">B</span><span class="fix__name">Check engine light</span><span class="fix__cat mono">Diag</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/scanner.svg" alt="" loading="lazy" decoding="async"><p>Scanner hookup, code read and a straight answer on what it means.</p></div></div>
-        </li>
-        <li class="fix" data-img="assets/img/car.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">C</span><span class="fix__name">Starters &amp; alternators</span><span class="fix__cat mono">Auto</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/car.svg" alt="" loading="lazy" decoding="async"><p>Clicks, no-crank, dim lights, dead battery again. We test it and swap it where it sits.</p></div></div>
-        </li>
-        <li class="fix" data-img="assets/img/atv.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">D</span><span class="fix__name">Carbs, belts &amp; bearings</span><span class="fix__cat mono">ATV · SxS</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/atv.svg" alt="" loading="lazy" decoding="async"><p>Cleaned carbs, fresh CVT belts, wheel bearings and pre-season tune-ups.</p></div></div>
-        </li>
-        <li class="fix" data-img="assets/img/mower.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">E</span><span class="fix__name">Mower won’t start</span><span class="fix__cat mono">Lawn</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/mower.svg" alt="" loading="lazy" decoding="async"><p>Riders and push mowers: plugs, fuel, belts, blades and decks.</p></div></div>
-        </li>
-        <li class="fix" data-img="assets/img/car.svg" data-cursor="Book">
-          <button type="button" class="fix__row" aria-expanded="false"><span class="fix__idx mono">F</span><span class="fix__name">Tune-ups &amp; fluids</span><span class="fix__cat mono">Auto</span></button>
-          <div class="fix__drawer"><div class="fix__drawer-in"><img src="assets/img/car.svg" alt="" loading="lazy" decoding="async"><p>Oil, filters, plugs and fluids — routine maintenance without losing your Saturday.</p></div></div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- ============ FULL-SCREEN EXPAND ============ -->
-    <section class="expand" aria-label="Our promise">
-      <div class="expand__pin">
-        <div class="expand__frame">
-          <div class="expand__inner">
-            <svg class="expand__truck" viewBox="0 0 820 380" aria-hidden="true"><use href="#truck-shell"/></svg>
-            <p class="expand__words">
-              <span class="expand__line">Shop-grade work.</span>
-              <span class="expand__line"><em class="serif">Driveway</em> convenience.</span>
-              <span class="expand__line">Fair price.</span>
-            </p>
-          </div>
-        </div>
+    <!-- ================= PROMISE (kinetic type) ================= -->
+    <section class="promise" aria-labelledby="promise-title">
+      <div class="promise__pin">
+        <div class="promise__paint" aria-hidden="true"></div>
+        <h2 class="promise__lines" id="promise-title">
+          <span class="promise__line">Honest work.</span>
+          <span class="promise__line">Fair prices.</span>
+          <span class="promise__line">Reliable service.</span>
+        </h2>
+        <p class="promise__sub">Whether it’s a small repair or a bigger job, I’m here to help.</p>
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <p class="eyebrow mono"><span>(06)</span> Book a call</p>
-      <h2 class="contact__title" id="contact-title">
-        <span class="contact__small"><span class="split-words">Got a problem?</span> <em class="serif">Ring the truck.</em></span>
-        <a class="contact__phone" href="tel:+16134494659" data-cursor="Call" aria-label="Call (613) 449-4659"><span class="split-chars" aria-hidden="true">(613) 449-4659</span></a>
-      </h2>
-      <div class="contact__row">
-        <a class="orb" href="tel:+16134494659" data-magnetic="0.5" data-cursor="Now">
-          <span class="orb__fill" aria-hidden="true"></span>
-          <span class="orb__text">Call now</span>
-        </a>
-        <div class="contact__links">
-          <a class="link" href="sms:+16134494659" data-cursor="Text"><span class="mono">Text</span> Send a photo of the problem</a>
-          <a class="link" href="https://www.facebook.com/deepndirtyco" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Facebook</span> @deepndirtyco</a>
-          <a class="link" href="https://www.instagram.com/deepndirtyco" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Instagram</span> @deepndirtyco</a>
+    <!-- ================= BOOK ================= -->
+    <section class="book" id="book" aria-labelledby="book-title">
+      <div class="book__top">
+        <div class="book__intro">
+          <p class="eyebrow mono"><i></i>Book a visit</p>
+          <h2 class="h2" id="book-title"><span class="split-words">Tell me what</span> <span class="split-words accent">it’s doing.</span></h2>
+          <p class="book__sub">Pick a few details and text them straight to my phone. Or just call.</p>
+        </div>
+        <figure class="book__logo">
+          <img src="assets/img/ymm-logo.webp" alt="Young Mobile Mechanic logo: the mechanic crouched with an impact driver beside a black pickup, with chrome and blue lettering" width="1224" height="528" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="builder">
+        <form class="builder__form" id="builder" novalidate>
+          <fieldset class="chips" data-group="vehicle" data-mode="single">
+            <legend class="mono">01 · What is it?</legend>
+            <button type="button" class="chip" aria-pressed="true" data-value="Car" data-phrase="a car">Car</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Truck" data-phrase="a truck">Truck</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="SUV" data-phrase="an SUV">SUV</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Van" data-phrase="a van">Van</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="ATV" data-phrase="an ATV">ATV</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Side-by-side" data-phrase="a side-by-side">Side-by-side</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Lawnmower" data-phrase="a lawnmower">Lawnmower</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Other" data-phrase="something">Other</button>
+          </fieldset>
+          <fieldset class="chips" data-group="issue" data-mode="multi">
+            <legend class="mono">02 · What’s going on? <span class="chips__hint">(pick any)</span></legend>
+            <button type="button" class="chip" aria-pressed="true" data-value="Brakes">Brakes</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Suspension">Suspension</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Check engine light">Check engine light</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Oil change">Oil change</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Tune-up">Tune-up</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Won’t start">Won’t start</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Battery / starter / alternator">Battery / starter / alternator</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Wheel bearing">Wheel bearing</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Tie rods / ball joints">Tie rods / ball joints</button>
+            <button type="button" class="chip" aria-pressed="false" data-value="Something else">Something else</button>
+          </fieldset>
+          <div class="builder__row">
+            <label class="field" for="b-town"><span class="mono">03 · Where is it?</span>
+              <select id="b-town" name="town">
+                <option>Napanee</option><option>Deseronto</option><option>Bath</option><option>Odessa</option><option>Yarker</option><option>Amherstview</option><option>Shannonville</option><option>Tamworth</option><option>Picton</option><option>Verona</option><option>Sydenham</option><option>Belleville</option><option>Kingston</option><option>Kaladar</option><option>Trenton</option><option value="other">Somewhere else</option>
+              </select>
+            </label>
+            <label class="field" for="b-model"><span class="mono">04 · Year, make, model <span class="chips__hint">(optional)</span></span>
+              <input id="b-model" name="model" type="text" placeholder="e.g. 2014 Silverado 1500" autocomplete="off" maxlength="60">
+            </label>
+          </div>
+        </form>
+
+        <div class="phone">
+          <div class="phone__bar mono"><span>To</span><b>(613) 449-4659</b><i class="led" aria-hidden="true"></i></div>
+          <div class="phone__thread">
+            <p class="bubble" data-msg aria-live="polite">Hi! I’ve got a car in Napanee.
+Issue: Brakes.
+When could you come take a look?</p>
+            <span class="phone__meta mono">Preview · updates as you pick</span>
+          </div>
+          <div class="phone__actions">
+            <a class="btn btn--volt" data-sms href="sms:+16134494659" data-cursor="Text"><span class="btn__fill" aria-hidden="true"></span><span class="btn__text">Text it</span></a>
+            <button type="button" class="btn btn--ghost" data-copy><span class="btn__fill" aria-hidden="true"></span><span class="btn__text">Copy message</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="book__call">
+        <a class="dial" href="tel:+16134494659" data-cursor="Call" aria-label="Call (613) 449-4659"><span class="dial__num chrome split-chars" aria-hidden="true">(613) 449-4659</span></a>
+        <div class="book__row">
+          <a class="orb" href="tel:+16134494659" data-magnetic="0.5" data-cursor="Now"><span class="orb__fill" aria-hidden="true"></span><span class="orb__text">Call now</span></a>
+          <ul class="socials">
+            <li><a class="link" href="sms:+16134494659" data-cursor="Text"><span class="mono">Text</span>Send a photo of the problem</a></li>
+            <li><a class="link" href="https://www.facebook.com/deepndirtyco" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Facebook</span>@deepndirtyco</a></li>
+            <li><a class="link" href="https://www.instagram.com/deepndirtyco" target="_blank" rel="noopener" data-cursor="Open"><span class="mono">Instagram</span>@deepndirtyco</a></li>
+          </ul>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer__meta mono">
-      <span>© <span data-year>2026</span> Deep N Dirty Co.</span>
-      <span>Young’s Mobile Services · Napanee, Ontario</span>
-      <a href="#top" data-goto>Back to top ↑</a>
+    <div class="footer__inner">
+      <div class="footer__meta mono">
+        <span>© <span data-year>2026</span> Deep N Dirty Co.</span>
+        <span>Young Mobile Mechanic · Napanee, Ontario</span>
+        <a href="#top" data-goto>Back to top ↑</a>
+      </div>
+      <p class="footer__word" aria-label="Deep N Dirty"><span class="footer__letters chrome" aria-hidden="true">DEEP N DIRTY</span></p>
     </div>
-    <p class="footer__word" aria-label="Deep N Dirty" data-proximity><span aria-hidden="true">DEEPNDIRTY</span></p>
   </footer>
 
   <script src="assets/js/vendor/gsap.min.js" defer></script>

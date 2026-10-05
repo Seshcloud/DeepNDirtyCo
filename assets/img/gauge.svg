@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke-linecap="round">
+  <title>Gauge</title>
+  <path d="M110 310 A190 190 0 0 1 490 310" stroke="#DCE5EF" stroke-width="3" opacity=".5"/>
+  <path d="M110 310 A190 190 0 0 1 395 145" stroke="#3D9BFF" stroke-width="10"/>
+  <g stroke="#DCE5EF" stroke-width="3">
+    <path d="M128 310 H150 M147 215 L166 226 M215 147 L226 166 M300 128 V150 M385 147 L374 166 M453 215 L434 226 M472 310 H450"/>
+  </g>
+  <path d="M300 310 L408 182" stroke="#3D9BFF" stroke-width="6"/>
+  <circle cx="300" cy="310" r="18" fill="#DCE5EF"/>
+</svg>
