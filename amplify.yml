@@ -1,0 +1,16 @@
+# AWS Amplify Hosting build settings.
+# The site is plain static files, so the "build" only copies what should be
+# public into dist/ (README, deploy scripts etc. stay private).
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - mkdir -p dist
+        - cp -R index.html favicon.svg assets dist/
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths: []
