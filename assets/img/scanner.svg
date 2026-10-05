@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Fig. 04 — Diagnostic scanner</title>
+  <g stroke="#EDE6D8" stroke-width="2">
+    <rect x="180" y="40" width="220" height="300" rx="28"/>
+    <rect x="202" y="66" width="176" height="132" rx="6"/>
+    <circle cx="250" cy="250" r="16"/><circle cx="330" cy="250" r="16"/>
+    <rect x="236" y="288" width="108" height="18" rx="9"/>
+    <path d="M290 340 Q290 380 380 376 Q470 372 474 320"/>
+    <rect x="450" y="282" width="48" height="40" rx="5"/>
+    <path d="M460 296 h28 M460 308 h28" opacity=".6"/>
+  </g>
+  <polyline points="212,160 232,160 242,120 252,176 262,140 280,140 290,100 300,170 312,150 334,150 344,128 356,160 368,160" stroke="#FF5A1F" stroke-width="2"/>
+  <g fill="#FF5A1F" font-family="JetBrains Mono, monospace" font-size="15" letter-spacing="1"><text x="212" y="90">P0301</text></g>
+  <g fill="#EDE6D8" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing=".5" opacity=".75"><text x="372" y="90" text-anchor="end">CYL 1 MISFIRE</text></g>
+  <g stroke="#EDE6D8" stroke-width="1" opacity=".8"><path d="M498 302 H560 V180"/></g>
+  <circle cx="498" cy="302" r="4" fill="#FF5A1F"/>
+  <g fill="#EDE6D8" font-family="JetBrains Mono, monospace" font-size="13" letter-spacing="1"><text x="560" y="168" text-anchor="end">OBD-II</text></g>
+</svg>
